@@ -6,18 +6,18 @@ import net.mowitnow.mower.reader.MowerInstructionReader;
 import net.mowitnow.mower.reader.MowerInstructionSet;
 import org.junit.Test;
 
+import java.net.URL;
+
 import static junit.framework.Assert.assertTrue;
 import static junit.framework.Assert.fail;
 
 public class MowerTest {
 
-		
 	@Test
 	public void testFileWithTwoInstructionsSet() {
-		
-		MowerInstructionReader reader = null; 
+		MowerInstructionReader reader = null;
 		try {
-			reader = new MowerInstructionReader("/tmp/commands.txt");
+			reader = new MowerInstructionReader(MowerTest.class.getResource("/commands.txt").getFile());
 		} catch (MowerException me) {
 			fail(me.getMessage());
 		}
